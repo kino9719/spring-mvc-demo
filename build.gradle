@@ -20,4 +20,8 @@ dependencies {
     compile group: 'org.springframework', name: 'spring-webmvc', version: '5.2.7.RELEASE'
     // jackson
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.1'
+    // JPA
+    compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.3.1.RELEASE'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.4.18.Final'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.21'
 }
