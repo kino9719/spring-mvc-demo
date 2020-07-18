@@ -2,6 +2,7 @@ package com.example.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "account")
@@ -24,6 +25,9 @@ public class Account implements Serializable {
 
     @Column(name = "is_admin", nullable = false)
     private Boolean admin = Boolean.FALSE;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="account")
+    private Set<UserOrder> UserOrders;
 
     public Account () {}
 

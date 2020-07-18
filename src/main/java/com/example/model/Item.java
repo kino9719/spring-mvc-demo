@@ -2,6 +2,7 @@ package com.example.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Table(name = "item")
 @Entity
@@ -18,6 +19,9 @@ public class Item implements Serializable {
 
     @Column(name = "price", nullable = false)
     private Integer price;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="item")
+    private Set<OrderItem> orderItems;
 
     public Item() {}
 

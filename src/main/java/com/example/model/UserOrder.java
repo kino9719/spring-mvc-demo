@@ -2,6 +2,7 @@ package com.example.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Table(name = "user_order")
 @Entity
@@ -24,6 +25,13 @@ public class UserOrder implements Serializable {
 
     @Column(name = "created_time", nullable = false)
     private Integer createdTime;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="userOrder")
+    private Set<OrderItem> orderItems;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="account_id", insertable = false, updatable = false)
+    private Account account;
 
     public UserOrder() {}
 
@@ -74,5 +82,13 @@ public class UserOrder implements Serializable {
         ", address=" + address + 
         ", createdTime=" + createdTime + 
         "}";
+    }
+
+    public Set<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(Set<OrderItem> orderItems) {
+        this.orderItems = orderItems;
     }
 }

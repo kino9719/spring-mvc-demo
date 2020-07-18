@@ -22,6 +22,14 @@ public class OrderItem implements Serializable {
     @Column(name = "amount", nullable = false)
     private Integer amount;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="order_id", insertable = false, updatable = false)
+    private UserOrder userOrder;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="item_id", insertable = false, updatable = false)
+    private Item item;
+
     public OrderItem() {}
 
     public Integer getId() {
@@ -62,5 +70,21 @@ public class OrderItem implements Serializable {
         ", itemId=" + itemId + 
         ", amount=" + amount + 
         "}";
+    }
+
+    public UserOrder getUserOrder() {
+        return userOrder;
+    }
+
+    public void setUserOrder(UserOrder userOrder) {
+        this.userOrder = userOrder;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
 }
