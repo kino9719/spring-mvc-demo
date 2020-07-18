@@ -29,4 +29,6 @@ dependencies {
     compile group: 'org.apache.tiles', name: 'tiles-servlet', version: '3.0.8'
     compile group: 'org.apache.tiles', name: 'tiles-core', version: '3.0.8'
     compile group: 'org.apache.tiles', name: 'tiles-el', version: '3.0.8'
+    // bcrypt
+    compile group: 'at.favre.lib', name: 'bcrypt', version: '0.9.0'
 }
