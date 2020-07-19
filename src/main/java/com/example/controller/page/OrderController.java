@@ -22,7 +22,7 @@ public class OrderController {
             model.addAttribute("orderInfos", orderInfos);
         } else {
             Integer accountId = (Integer) httpSession.getAttribute("accountId");
-            List<OrderInfo> orderInfos = userOrderRepository.findOrderInfoByUsername(accountId);
+            List<OrderInfo> orderInfos = userOrderRepository.findOrderInfoByAccountId(accountId);
             model.addAttribute("orderInfos", orderInfos);
         }
 

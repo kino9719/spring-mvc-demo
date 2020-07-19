@@ -14,7 +14,10 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Order(1)
-@WebFilter(urlPatterns = {"/"}, dispatcherTypes = {DispatcherType.REQUEST})
+@WebFilter(urlPatterns = {
+        "/",
+        "/api/orders/*"
+}, dispatcherTypes = {DispatcherType.REQUEST})
 public class LoginFilter extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
