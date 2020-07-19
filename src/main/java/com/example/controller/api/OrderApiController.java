@@ -17,12 +17,12 @@ public class OrderApiController {
     @Autowired
     OrderService orderService;
 
-    @GetMapping("/api/order/{orderId}/items")
+    @GetMapping("/api/orders/{orderId}/items")
     public List<OrderItemInfo> items(@PathVariable("orderId") Integer orderId) {
         return orderService.getOrderItems(orderId);
     }
 
-    @DeleteMapping("/api/order/{orderId}")
+    @DeleteMapping("/api/orders/{orderId}")
     public ResponseEntity<String> deleteOrder(@PathVariable("orderId") Integer orderId) {
         orderService.deleteOrder(orderId);
 
