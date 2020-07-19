@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: tomcat-Dockerfile
+    ports:
+      - "8089:8080"
+    depends_on:
+      - "mysql57"
+  mysql57:
+    image: mysql:5.7
+    ports:
+      - "13396:3306"
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/mysql-schemas.sql
+    environment:
+      - MYSQL_ROOT_PASSWORD=my_password

@@ -35,3 +35,17 @@ chmod 755 ./apache-tomcat-8.5.57/bin/*.sh
 ```
 http://localhost:8080
 ```
+
+## 使用 docker compose 啟動
+
+1. 執行 docker-compose
+
+```
+docker-compose up
+```
+
+2. 開啟網頁
+
+```
+http://localhost:8089
+```
