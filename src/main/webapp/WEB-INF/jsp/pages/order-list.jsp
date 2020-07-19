@@ -30,6 +30,9 @@
                     <td><c:out value="${fn:escapeXml(orderInfo.total)}"/></td>
                     <td>
                         <button class="uk-button uk-button-primary uk-button-small" @click="showDetail(<c:out value="${orderInfo.id}"/>)">詳細</button>
+                        <c:if test="${sessionScope.isAdmin}">
+                            <button class="uk-button uk-button-danger uk-button-small" @click="deleteOrder(<c:out value="${orderInfo.id}"/>)">刪除</button>
+                        </c:if>
                     </td>
                 </tr>
             </c:forEach>
