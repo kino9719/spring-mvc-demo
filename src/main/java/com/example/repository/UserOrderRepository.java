@@ -1,5 +1,6 @@
 package com.example.repository;
 
+import com.example.model.OrderItemInfo;
 import com.example.model.UserOrder;
 import com.example.model.OrderInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,4 +25,9 @@ public interface UserOrderRepository extends JpaRepository<UserOrder, Integer>, 
             " where uo.accountId = :accountId\n" +
             " group by uo.id, uo.accountId, uo.phone, uo.address, uo.createdTime, a.name")
     List<OrderInfo> findOrderInfoByAccountId(@Param("accountId") Integer accountId);
+
+    @Query(value="select NEW com.example.model.OrderItemInfo(oi.id, oi.orderId, oi.itemId, oi.amount, i.price, i.name) from OrderItem oi\n" +
+            " left join oi.item i on oi.itemId = i.id\n" +
+            " where oi.orderId = :orderId")
+    List<OrderItemInfo> findOrderItems(@Param("orderId") Integer orderId);
 }
