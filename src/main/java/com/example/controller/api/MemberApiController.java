@@ -23,6 +23,7 @@ public class MemberApiController {
 
             session.setAttribute("username", account.getUsername());
             session.setAttribute("isAdmin", account.isAdmin());
+            session.setAttribute("accountId", account.getId());
         } catch (ValidateFailedException e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.UNAUTHORIZED);
         }

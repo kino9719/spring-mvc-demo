@@ -16,6 +16,7 @@ public class MemberController {
     public String logout(HttpSession session) {
         session.removeAttribute("username");
         session.removeAttribute("isAdmin");
+        session.removeAttribute("accountId");
 
         return "redirect:/login";
     }
