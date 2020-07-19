@@ -15,4 +15,9 @@
         <put-attribute name="title" value="Login" />
         <put-attribute name="body" value="/WEB-INF/jsp/pages/login.jsp" />
     </definition>
+
+    <definition name="order-list" extends="base.definition">
+        <put-attribute name="title" value="訂單列表" />
+        <put-attribute name="body" value="/WEB-INF/jsp/pages/order-list.jsp" />
+    </definition>
 </tiles-definitions>
